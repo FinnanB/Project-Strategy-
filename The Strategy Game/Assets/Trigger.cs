@@ -12,7 +12,7 @@ public class Trigger : MonoBehaviour
         if (other.CompareTag(target_tag))
         {
             OnEnteredTrigger.Invoke(other.gameObject);
-            Debug.Log("UNIT ENTERED!!!");
+           // Debug.Log("UNIT ENTERED!!!");
         }
     }
 
@@ -21,7 +21,7 @@ public class Trigger : MonoBehaviour
         if (other.CompareTag(target_tag))
         {
             OnExitTrigger.Invoke(other.gameObject);
-            Debug.Log("UNIT EXIT!!!");
+           // Debug.Log("UNIT EXIT!!!");
         }
     }
 }

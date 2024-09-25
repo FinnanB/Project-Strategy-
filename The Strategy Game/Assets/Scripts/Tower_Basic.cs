@@ -18,7 +18,7 @@ public class Tower_Basic : Tower
         {
             if(Physics.Raycast(fire_pos.position, fire_pos.forward, out hit, 10000f, ignore_layers))
             {
-                Debug.Log("HIT: ");
+               // Debug.Log("HIT: ");
                 if (hit.transform.CompareTag("attack_unit"))
                 {
                     Health targetHealth = hit.transform.GetComponent<Health>();

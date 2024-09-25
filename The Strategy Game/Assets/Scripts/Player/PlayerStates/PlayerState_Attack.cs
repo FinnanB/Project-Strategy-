@@ -63,6 +63,7 @@ public class PlayerState_Attack : PlayerState_Base
         {
             if (!controller.isPrepping)
             {
+<<<<<<< Updated upstream
                 GameObject littleDude = controller.HelpInstantiate(controller.units.attacking_units[0], controller.attack_spawn.spawnPositions[currentSpawnPosition].position, Quaternion.identity, controller.attack_spawn.spawnPositions[currentSpawnPosition]);
                 littleDude.GetComponent<AttackingDude>().AddCastleAsTarget(controller.attack_spawn.target_castle[currentSpawnPosition]);
             }
@@ -97,6 +98,15 @@ public class PlayerState_Attack : PlayerState_Base
             {
                 GameObject littleDude = controller.HelpInstantiate(controller.units.attacking_units[2], controller.attack_spawn.spawnPositions[currentSpawnPosition].position, Quaternion.identity, controller.attack_spawn.spawnPositions[currentSpawnPosition]);
                 littleDude.GetComponent<AttackingDude>().AddCastleAsTarget(controller.attack_spawn.target_castle[currentSpawnPosition]);
+=======
+                if (controller.HasMen())
+                {
+                    controller.LooseMan();
+                    GameObject littleDude = controller.HelpInstantiate(controller.units.attacker_basic, controller.attack_spawn.spawnPositions[currentSpawnPosition].position, Quaternion.identity, controller.attack_spawn.spawnPositions[currentSpawnPosition]);
+                    littleDude.GetComponent<AttackingDude>().AddCastleAsTarget(controller.enemyCastle);
+                }
+                
+>>>>>>> Stashed changes
             }
             else
             {

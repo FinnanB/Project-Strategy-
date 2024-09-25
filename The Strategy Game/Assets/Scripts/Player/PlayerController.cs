@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public enum PlayerStates
 {
@@ -33,6 +34,13 @@ public class PlayerController : MonoBehaviour
     public AttackSpawn attack_spawn;
     public Transform enemyCastle;
     public GameObject attackHelper;
+
+    public int men;
+    public int menMax;
+    public int gold;
+
+    public TextMeshProUGUI goldT;
+    public TextMeshProUGUI menT;
 
     private void Awake()
     {
@@ -86,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        UImanage();
         currentState.FrameUpdate(this);
     }
 
@@ -103,10 +112,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnButtonSouth(InputAction.CallbackContext ctx)
     {
-        if(!freeze_movement)
+        if (!freeze_movement)
             currentState.OnButtonSouth(this, ctx);
     }
 
+<<<<<<< Updated upstream
     public void OnButtonWest(InputAction.CallbackContext ctx)
     {
         if (!freeze_movement)
@@ -117,6 +127,28 @@ public class PlayerController : MonoBehaviour
     {
         if (!freeze_movement)
             currentState.OnButtonEast(this, ctx);
+=======
+    public void ResetMen()
+    {
+        men = menMax;
+    }
+
+    public void LooseMan()
+    {
+        men--;
+    }
+
+    public bool HasMen()
+    {
+        return men > 0;
+    }
+
+    void UImanage()
+    {
+        goldT.text = "Gold: " + gold;
+        menT.text = "Men: " + men + "/" + menMax;
+
+>>>>>>> Stashed changes
     }
 
     public void SwitchState(int state)

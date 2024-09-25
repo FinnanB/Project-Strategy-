@@ -111,8 +111,17 @@ public class PlayerState_Defend : PlayerState_Base
         {
             if (controller.current_grid_space != null)
             {
+<<<<<<< Updated upstream
                 controller.defenseGrid.PlaceTower(controller.current_grid_space, controller.units.defensive_units[0], 1);
                 EvaluateGridSpace(controller); //TEMP
+=======
+                if (controller.HasMen())
+                {
+                    controller.LooseMan();
+                    controller.defenseGrid.PlaceTower(controller.current_grid_space, controller.units.tower_basic);
+                    EvaluateGridSpace(controller); //TEMP
+                }
+>>>>>>> Stashed changes
             }
            
         }
